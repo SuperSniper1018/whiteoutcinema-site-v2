@@ -42,6 +42,10 @@ a {
     text-decoration: none;
     position: relative;
     box-sizing: content-box;
+    color: $text-color;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    font-size: 3vh;
   }
   
   a::after {
@@ -58,7 +62,10 @@ a {
   a:hover::after {
     width: 100%;
   }
-  
+
+footer p{
+    font-size: 3vh;
+}  
 
 div a{color: $text-color;
     font-family: 'Source Sans Pro', sans-serif;
