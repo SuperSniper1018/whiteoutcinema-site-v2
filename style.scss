@@ -74,6 +74,12 @@ nav:not(.transparent) {
     background-color: rgba(5, 5, 5, 0.8);
 }
 
+footer {
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+}
+
 .transparent {
     background-color: transparent;
 }
