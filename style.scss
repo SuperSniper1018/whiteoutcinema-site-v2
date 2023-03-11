@@ -75,9 +75,14 @@ nav:not(.transparent) {
 }
 
 footer {
+    margin-left: 25vw;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
     width: 50vw;
+    height: 10vh;
+    color: $text-color;
 }
 
 .transparent {
