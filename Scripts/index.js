@@ -6,4 +6,4 @@ document.addEventListener("scroll", function() {
     } else {
       navbar.classList.remove("transparent");
     }
-  });  
+  });

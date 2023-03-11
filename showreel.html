@@ -20,9 +20,88 @@
     </nav>
 
     <body>
-
+        <div id="video-grid">
+            
+        </div>
     </body>
+
+    <footer style="padding-top: 5vw;">
+        <a href="mailto:contact@whiteoutcinema.xyz">Email</a><p>|</p><a href="https://github.com/WhiteoutFPV">Github</a><p>|</p><a href="link">Facebook or smth</a>
+    </footer>
 
 </html>
 
 <script src="Scripts/index.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+  // The channel ID for the channel you want to retrieve videos from
+  var channelID = "UC9SaAEGqPCaKoIj1M7LA8pg";
+
+  // The API key for your YouTube Data API project
+  var apiKey = "AIzaSyD6qpFd6eP3geoK0Hvg_ccS3yQYXusE6Jo";
+
+  // The number of videos you want to display
+  var videoCount = 16;
+
+  // The width and height of each video thumbnail in pixels
+  var thumbnailWidth = "800vw";
+  var thumbnailHeight = "450vw";
+
+  // Load the client library
+  gapi.load("client", function() {
+    // Initialize the client with your API key and channel ID
+    gapi.client.init({
+      apiKey: apiKey,
+      discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"],
+    }).then(function() {
+      // Request the videos from the YouTube Data API
+      return gapi.client.youtube.search.list({
+        "part": "id",
+        "channelId": channelID,
+        "maxResults": videoCount,
+        "type": "video"
+      });
+    }).then(function(response) {
+      // Extract the video IDs from the API response
+      var videoIDs = response.result.items.map(function(item) {
+        return item.id.videoId;
+      });
+
+      // Create a grid with 2 columns and 8 rows
+      var videoGrid = document.getElementById("video-grid");
+      for (var row = 0; row < 8; row++) {
+        var rowContainer = document.createElement("div");
+        rowContainer.style.display = "flex";
+        rowContainer.style.flexDirection = "row";
+        rowContainer.style.alignItems = "center";
+        rowContainer.style.margin = "8vw 0px";
+        rowContainer.style.justifyContent = "space-evenly";
+        for (var col = 0; col < 2; col++) {
+          var index = row * 2 + col;
+          if (index >= videoIDs.length) {
+            break;
+          }
+          var videoID = videoIDs[index];
+          var videoURL = "https://www.youtube.com/embed/" + videoID;
+          var videoThumbnailURL = "https://img.youtube.com/vi/" + videoID + "/mqdefault.jpg";
+
+          var video = document.createElement("iframe");
+          video.src = videoURL;
+          video.width = thumbnailWidth;
+          video.height = thumbnailHeight;
+          video.allowfullscreen = true;
+          video.frameborder = "0";
+          video.loading = "lazy";
+
+          var container = document.createElement("div");
+          container.appendChild(video);
+
+          rowContainer.appendChild(container);
+        }
+        videoGrid.appendChild(rowContainer);
+      }
+    }, function(error) {
+      console.error("Error loading YouTube Data API: " + error);
+    });
+  });
+</script>
