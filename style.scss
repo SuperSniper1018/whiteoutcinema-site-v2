@@ -9,6 +9,10 @@ $text-color: #ffffff;
     box-sizing: border-box;
 }
 
+body {
+    background-color: #090909;
+}
+
 h1{
     color: $text-color;
     font-family: 'Source Sans Pro', sans-serif;
@@ -17,8 +21,6 @@ h1{
     font-size: 3vh;
     padding: 1.4vh 2vw;
 }
-
-h1 {}
 
 nav{
     display: flex;
@@ -36,10 +38,32 @@ div.navbar {
     height: 100%;;
 }
 
+a {
+    text-decoration: none;
+    position: relative;
+    box-sizing: content-box;
+  }
+  
+  a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 5vh;
+    width: 0%;
+    height: 2px;
+    background-color: $text-color;
+    transition: width 0.15s ease-in-out;
+  }
+  
+  a:hover::after {
+    width: 100%;
+  }
+  
+
 div a{color: $text-color;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 200;
-    width: 10vw; 
+    width: 8vw; 
     height: 100%;
     display: inline-block;
     text-align: center;
