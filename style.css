@@ -136,7 +136,7 @@ iframe {
   border-radius: .5vh;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
-  padding: 2vw 2vw;
+  padding: 2vw 0vw;
 }
 
 #video-grid {
@@ -152,7 +152,7 @@ iframe {
       -ms-flex-align: start;
           align-items: flex-start;
   width: 100vw;
-  padding: 0vw 5vw;
+  padding: 0vw 2vw;
 }
 
 .video-container {
