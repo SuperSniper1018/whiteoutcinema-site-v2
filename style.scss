@@ -17,7 +17,7 @@ h1 {
     font-size: 3vw;
 }
 
-p {
+body p {
     color: $text-color;
     font-weight: 200;
     font-size: 1.6vw;
@@ -89,11 +89,12 @@ div.navbar a:hover::after {
 footer p{
     font-size: 1vw;
     color: $subheader-color;
+    padding: 0px 0px;
 }  
 
 footer a{
     font-size: 1vw;
-    width: 8vw;
+    width: 2vw;
     color: $subheader-color;
 
 }
@@ -107,7 +108,7 @@ footer {
     margin-left: 25vw;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     text-align: center;
     box-sizing: content-box;
     width: 50vw;
