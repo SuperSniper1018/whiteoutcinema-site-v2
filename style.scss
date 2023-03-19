@@ -2,18 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
 $text-color: #ffffff;
+$subheader-color: #a0a0a0;
 
 * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    font-family: 'Source Sans Pro';
+}
+
+h1 {
+    color: $text-color;
+    font-weight: 200;
+    font-size: 3vw;
+}
+
+p {
+    color: $text-color;
+    font-weight: 200;
+    font-size: 1.6vw;
+    padding: 5vw 10vw;
 }
 
 body {
     background-color: #090909;
 }
 
-h1{
+nav h1{
     color: $text-color;
     font-family: 'Source Sans Pro', sans-serif;
     text-align: left;
@@ -56,27 +71,30 @@ div.navbar a {
     padding: 1.2vw 0vw;
   }
   
-a::after {
+div.navbar a::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: 2vw;
+    bottom: 2.4vw;
     width: 0%;
     height: 2px;
     background-color: $text-color;
     transition: width 0.15s ease-in-out;
 }
   
-a:hover::after {
+div.navbar a:hover::after {
     width: 100%;
 }
 
 footer p{
     font-size: 1vw;
+    color: $subheader-color;
 }  
 
 footer a{
     font-size: 1vw;
+    width: 8vw;
+    color: $subheader-color;
 
 }
 
@@ -90,6 +108,7 @@ footer {
     flex-direction: row;
     justify-content: space-evenly;
     text-align: center;
+    box-sizing: content-box;
     width: 50vw;
     height: 10vh;
     color: $text-color;
@@ -100,26 +119,62 @@ footer {
 }
 
 iframe {
-    border: 0px;
-    border-radius: .25vh;
+    border-radius: .5vh;
+    box-sizing: content-box;
+    padding: 2vw 2vw;
 }
 
 //Youtube Nonsense
-.video-grid {
+#video-grid {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100vw;
+    padding: 0vw 5vw;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-    margin: 0px;
-  }
-  
-  .video-cell {
-    box-sizing: border-box;
-    width: 50%;
-  }
-  
-  .video-cell a {
-    display: block;
-    text-align: center;
-    color: #000;
-    text-decoration: none;
+    width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    nav {
+      height: 8vh;
+    }
+
+    div.navbar {
+        height: 100%;
+        flex-grow: 1;
+        justify-content: end;
+        flex-wrap: nowrap;
+    }
+    
+    div.navbar a {
+        position: relative;
+        box-sizing: content-box;
+        display: inline-block;
+        text-align: center;
+        height: 100%;
+        width: 23%;
+        font-weight: 200;
+        font-size: 1.5vh;
+        padding: 2.5vh 0vh;
+    }
+
+    h1{
+        color: $text-color;
+        box-sizing: border-box;
+        font-family: 'Source Sans Pro', sans-serif;
+        text-align: left;
+        font-weight: 200;
+        width: 15vh;
+        word-wrap: normal;
+        font-size: 2.5vh;
+        padding: 0.5vh 2vh;
+    }
   }

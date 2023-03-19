@@ -19,9 +19,17 @@
         </div>
     </nav>
 
-    <body>
+    <body style="margin-top: 10vh;">
         <div id="video-grid">
+            <div class="video-container">
+              <iframe width="800vw" height="450vw" src="https://www.youtube.com/embed/712Zhfkf2EQ" title="Blender VFX Text Test" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe width="800vw" height="450vw" src="https://www.youtube.com/embed/PRxx-eNc2QE" title="Frio River, Leakey, TX" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
             
+            <div class="video-container">
+              <iframe width="800vw" height="450vw" src="https://www.youtube.com/embed/712Zhfkf2EQ" title="Blender VFX Text Test" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe width="800vw" height="450vw" src="https://www.youtube.com/embed/PRxx-eNc2QE" title="Frio River, Leakey, TX" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
         </div>
     </body>
 
@@ -32,76 +40,48 @@
 </html>
 
 <script src="Scripts/index.js"></script>
-<script src="https://apis.google.com/js/api.js"></script>
+<!--Load Google API-->
+<!--<script src="https://apis.google.com/js/api.js"></script>
 <script>
-  // The channel ID for the channel you want to retrieve videos from
-  var channelID = "UC9SaAEGqPCaKoIj1M7LA8pg";
+  // Load the API client library
+gapi.load('client', start);
 
-  // The API key for your YouTube Data API project
-  var apiKey = "AIzaSyD6qpFd6eP3geoK0Hvg_ccS3yQYXusE6Jo";
-
-  // The number of videos you want to display
-  var videoCount = 16;
-
-  // The width and height of each video thumbnail in pixels
-  var thumbnailWidth = "800vw";
-  var thumbnailHeight = "450vw";
-
-  // Load the client library
-  gapi.load("client", function() {
-    // Initialize the client with your API key and channel ID
-    gapi.client.init({
-      apiKey: apiKey,
-      discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"],
-    }).then(function() {
-      // Request the videos from the YouTube Data API
-      return gapi.client.youtube.search.list({
-        "part": "id",
-        "channelId": channelID,
-        "maxResults": videoCount,
-        "type": "video"
-      });
-    }).then(function(response) {
-      // Extract the video IDs from the API response
-      var videoIDs = response.result.items.map(function(item) {
-        return item.id.videoId;
-      });
-
-      // Create a grid with 2 columns and 8 rows
-      var videoGrid = document.getElementById("video-grid");
-      for (var row = 0; row < 8; row++) {
-        var rowContainer = document.createElement("div");
-        rowContainer.style.display = "flex";
-        rowContainer.style.flexDirection = "row";
-        rowContainer.style.alignItems = "center";
-        rowContainer.style.margin = "8vw 0px";
-        rowContainer.style.justifyContent = "space-evenly";
-        for (var col = 0; col < 2; col++) {
-          var index = row * 2 + col;
-          if (index >= videoIDs.length) {
-            break;
-          }
-          var videoID = videoIDs[index];
-          var videoURL = "https://www.youtube.com/embed/" + videoID;
-          var videoThumbnailURL = "https://img.youtube.com/vi/" + videoID + "/mqdefault.jpg";
-
-          var video = document.createElement("iframe");
-          video.src = videoURL;
-          video.width = thumbnailWidth;
-          video.height = thumbnailHeight;
-          video.allowfullscreen = true;
-          video.frameborder = "0";
-          video.loading = "lazy";
-
-          var container = document.createElement("div");
-          container.appendChild(video);
-
-          rowContainer.appendChild(container);
-        }
-        videoGrid.appendChild(rowContainer);
-      }
-    }, function(error) {
-      console.error("Error loading YouTube Data API: " + error);
+function start() {
+  // Initialize the client with your API key
+  gapi.client.init({
+    apiKey: 'AIzaSyDUCICBkxTQ44B1QcKGfh3tKWR9V4rBP-M',
+    discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
+  }).then(function() {
+    // Make a request to the YouTube API to retrieve the videos from the channel
+    return gapi.client.youtube.search.list({
+      part: 'snippet',
+      channelId: 'UC9SaAEGqPCaKoIj1M7LA8pg',
+      maxResults: 10,
+      order: 'date'
     });
+  }).then(function(response) {
+    // Create the video grid using the retrieved videos
+    var videos = response.result.items;
+    var videoGrid = document.getElementById('video-grid');2
+      var video = videos[i];
+      var videoLink = 'https://www.youtube.com/watch?v=' + video.id.videoId;
+      var videoThumbnail = video.snippet.thumbnails.medium.url;
+      var videoTitle = video.snippet.title;
+      var videoDescription = video.snippet.description;
+      var columnClass = (i % 2 == 0) ? 'left' : 'right';
+      var videoElement = `
+        <div class="video ${columnClass}">
+          <a href="${videoLink}" target="_blank">
+            <img src="${videoThumbnail}" alt="${videoTitle}">
+          </a>
+          <h3>${videoTitle}</h3>
+          <p>${videoDescription}</p>
+        </div>
+      `;
+      videoGrid.innerHTML += videoElement;
+    }
+  }, function(error) {
+    console.error(error);
   });
-</script>
+}
+</script>-->
