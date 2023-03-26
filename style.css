@@ -48,8 +48,15 @@ nav {
   top: 0%;
   width: 100%;
   height: 6vh;
-  -webkit-transition: background-color 0.25s ease-in-out;
-  transition: background-color 0.25s ease-in-out;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+
+nav:not(.transparent) {
+  -webkit-backdrop-filter: blur(64px);
+          backdrop-filter: blur(64px);
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
 }
 
 a {
@@ -101,11 +108,6 @@ footer a {
   font-size: 2vh;
   width: 2vw;
   color: #a0a0a0;
-}
-
-nav:not(.transparent) {
-  -webkit-backdrop-filter: blur(64px);
-          backdrop-filter: blur(64px);
 }
 
 footer {
