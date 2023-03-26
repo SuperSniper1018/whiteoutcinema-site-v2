@@ -98,7 +98,7 @@ footer a{
 
 }
 
-nav.transparent {
+nav:not(.transparent) {
     //background-color: rgba(5, 5, 5, 0.8);
     backdrop-filter: blur(64px);
 }

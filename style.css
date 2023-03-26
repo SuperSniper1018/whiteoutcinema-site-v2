@@ -103,7 +103,7 @@ footer a {
   color: #a0a0a0;
 }
 
-nav.transparent {
+nav:not(.transparent) {
   -webkit-backdrop-filter: blur(64px);
           backdrop-filter: blur(64px);
 }
