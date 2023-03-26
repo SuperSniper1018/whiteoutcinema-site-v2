@@ -15,17 +15,15 @@
             <a href="index.html">Home</a>
             <a href="showreel.html">Showreel</a>
             <a href="contact.html">Contact</a>
+            <a href="pilots.html">Pilots</a>
             <a href="about.html">About</a>
         </div>
     </nav>
 
     <body>
         <header style="width:100vw; height: 100vh;">
-            <!--
-            <video>
-                <source src="file.mp4">
-            </video>
-            -->
+            <a href="showreel.html">Watch the Showreel</a>
+            <video autoplay loop muted style="position: absolute; top:0px;left:0px;size: 100%; z-index: -1;"><source src="Images/bg.mp4"></video>
             <p>Shots by TimberlineFPV</p>
         </header>
         
@@ -40,7 +38,7 @@
     </body>
 
     <footer>
-        <a href="mailto:contact@whiteoutcinema.xyz">Email</a><p>|</p><a href="https://github.com/WhiteoutFPV">Github</a><p>|</p><a href="link">Facebook or smth</a>
+        <a href="mailto:contact@whiteoutcinema.xyz">Email</a><p>|</p><a href="https://github.com/WhiteoutFPV">Github</a><p>|</p><a href="link">Other</a>
     </footer>
 
     <h1 style="background-color: #ffffff;">lorem ipsum</h1>
@@ -48,27 +46,49 @@
 
 </html>
 
-<script src="Scripts/index.js"></script>
-<script src="https://kit.fontawesome.com/be1c725dc2.js" crossorigin="anonymous"></script>
-
 <style>
-    header {background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.5), rgba(5, 5, 5, 0.8)), url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+    header {background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.5), rgba(5, 5, 5, 0.8));
         background-size: cover;
-    background-position: center;}
+    background-position: center;
+    transition: 0.25s ease;}
 
     header p {text-align: right;
         font-weight: 200;
         color: rgba(255, 255, 255, 0.75);
-        font-size: 1vw;
+        font-size: 2vh;
         position: absolute;
         padding: 0.5vh 0.4vw;
         right: 2vw;
         bottom: 2vh;
         letter-spacing: normal;}
 
+    header a {font-weight: 600;
+        font-size: 6vh;
+        letter-spacing: 1vw;
+        width: 100vw;
+        height: 100vh;
+        display: block;
+        text-align: center;
+        padding: 45vh 0px;
+        transition: color 0.2s ease;}
+
+    header a:hover {color:#dfdfdf;
+        transition: color 0.2s ease;}
+
     h2 {padding: 5vh 10vw; /*temporary*/
         font-size: 250%;
         line-height: 175%;
         font-weight: 300;
         color: #ffffff;}
+
+    video {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;}
 </style>

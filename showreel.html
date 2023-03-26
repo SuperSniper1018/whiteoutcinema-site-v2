@@ -15,6 +15,7 @@
             <a href="index.html">Home</a>
             <a href="showreel.html">Showreel</a>
             <a href="contact.html">Contact</a>
+            <a href="pilots.html">Pilots</a>
             <a href="about.html">About</a>
         </div>
     </nav>
@@ -34,54 +35,26 @@
     </body>
 
     <footer style="padding-top: 5vw;">
-        <a href="mailto:contact@whiteoutcinema.xyz">Email</a><p>|</p><a href="https://github.com/WhiteoutFPV">Github</a><p>|</p><a href="link">Facebook or smth</a>
+        <a href="mailto:contact@whiteoutcinema.xyz">Email</a><p>|</p><a href="https://github.com/WhiteoutFPV">Github</a><p>|</p><a href="link">Other</a>
     </footer>
 
 </html>
 
-<script src="Scripts/index.js"></script>
-<!--Load Google API-->
-<!--<script src="https://apis.google.com/js/api.js"></script>
-<script>
-  // Load the API client library
-gapi.load('client', start);
+<style>
+iframe {border-radius: .5vh;
+  box-sizing: content-box;
+  padding: 2vw 0vw;}
 
-function start() {
-  // Initialize the client with your API key
-  gapi.client.init({
-    apiKey: 'AIzaSyDUCICBkxTQ44B1QcKGfh3tKWR9V4rBP-M',
-    discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
-  }).then(function() {
-    // Make a request to the YouTube API to retrieve the videos from the channel
-    return gapi.client.youtube.search.list({
-      part: 'snippet',
-      channelId: 'UC9SaAEGqPCaKoIj1M7LA8pg',
-      maxResults: 10,
-      order: 'date'
-    });
-  }).then(function(response) {
-    // Create the video grid using the retrieved videos
-    var videos = response.result.items;
-    var videoGrid = document.getElementById('video-grid');2
-      var video = videos[i];
-      var videoLink = 'https://www.youtube.com/watch?v=' + video.id.videoId;
-      var videoThumbnail = video.snippet.thumbnails.medium.url;
-      var videoTitle = video.snippet.title;
-      var videoDescription = video.snippet.description;
-      var columnClass = (i % 2 == 0) ? 'left' : 'right';
-      var videoElement = `
-        <div class="video ${columnClass}">
-          <a href="${videoLink}" target="_blank">
-            <img src="${videoThumbnail}" alt="${videoTitle}">
-          </a>
-          <h3>${videoTitle}</h3>
-          <p>${videoDescription}</p>
-        </div>
-      `;
-      videoGrid.innerHTML += videoElement;
-    }
-  }, function(error) {
-    console.error(error);
-  });
-}
-</script>-->
+#video-grid {display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100vw;
+  padding: 0vw 2vw;}
+
+.video-container {display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;}
+</style>
