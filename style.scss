@@ -31,7 +31,7 @@ nav h1{
     color: $text-color;
     font-family: 'Source Sans Pro', sans-serif;
     text-align: left;
-    font-weight: 200;
+    font-weight: 300;
     font-size: 3vh;
     padding: .75vh 3vh;
 }
@@ -50,7 +50,7 @@ nav{
 
 nav:not(.transparent) {
     //background-color: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(64px);
+    backdrop-filter: blur(16px);
     transition: 0.25s ease;
 }
 
@@ -69,10 +69,10 @@ div.navbar a {
     box-sizing: content-box;
     display: inline-block;
     text-align: center;
-    width: 8vw; 
+    width: 12vh; 
     height: 100%;
-    font-weight: 200;
-    font-size: 2vh;
+    font-weight: 300;
+    font-size: 2.5vh;
     padding: 1.5vh 0px 0.6vh;
   }
   

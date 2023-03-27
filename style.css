@@ -28,7 +28,7 @@ nav h1 {
   color: #ffffff;
   font-family: 'Source Sans Pro', sans-serif;
   text-align: left;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 3vh;
   padding: .75vh 3vh;
 }
@@ -53,8 +53,8 @@ nav {
 }
 
 nav:not(.transparent) {
-  -webkit-backdrop-filter: blur(64px);
-          backdrop-filter: blur(64px);
+  -webkit-backdrop-filter: blur(16px);
+          backdrop-filter: blur(16px);
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
 }
@@ -75,10 +75,10 @@ div.navbar a {
           box-sizing: content-box;
   display: inline-block;
   text-align: center;
-  width: 8vw;
+  width: 12vh;
   height: 100%;
-  font-weight: 200;
-  font-size: 2vh;
+  font-weight: 300;
+  font-size: 2.5vh;
   padding: 1.5vh 0px 0.6vh;
 }
 
